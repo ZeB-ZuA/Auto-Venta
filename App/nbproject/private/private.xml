@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/danna_k167u3u/Desktop/Aplicaciones/Auto-Venta/App/index.php</file>
-            <file>file:/C:/Users/danna_k167u3u/Desktop/Aplicaciones/Auto-Venta/App/login.php</file>
-            <file>file:/C:/Users/danna_k167u3u/Desktop/Aplicaciones/Auto-Venta/App/views/header.php</file>
+            <file>file:/C:/xampp834/htdocs/Auto-Venta/App/process_login.php</file>
+            <file>file:/C:/xampp834/htdocs/Auto-Venta/App/process_signup.php</file>
+            <file>file:/C:/xampp834/htdocs/Auto-Venta/App/BuyerView.php</file>
+            <file>file:/C:/xampp834/htdocs/Auto-Venta/App/SingUp.php</file>
+            <file>file:/C:/xampp834/htdocs/Auto-Venta/App/VendorView.php</file>
+            <file>file:/C:/xampp834/htdocs/Auto-Venta/App/AuthService.php</file>
+            <file>file:/C:/xampp834/htdocs/Auto-Venta/App/Entity/User.php</file>
         </group>
     </open-files>
 </project-private>

@@ -25,8 +25,8 @@
 
         <label for="role">Rol:</label><br>
         <select id="role" name="role">
-            <option value="Vendedor">Vendedor</option>
-            <option value="Comprador">Comprador</option>
+            <option value="Vendor">Vendedor</option>
+            <option value="Buyer">Comprador</option>
         </select><br><br>
 
         <input type="submit" value="Registrar">

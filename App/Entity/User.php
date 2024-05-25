@@ -20,7 +20,7 @@ class User {
         $this->lastName = $lastName;
         $this->credit = $credit;
         $this->registrationDate = $registrationDate ?? date('Y-m-d');
-        $this->role = $role;
+        $this->rol = $role;
         $this->id = $id;
     }
 
