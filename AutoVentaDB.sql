@@ -73,3 +73,7 @@ ALTER TABLE Favorites ADD FOREIGN KEY (ID_Car) REFERENCES Car(ID_Car) ON DELETE 
 -- Adding constraints
 ALTER TABLE User ADD UNIQUE (Email);
 ALTER TABLE Car ADD UNIQUE (Plate);
+
+-- Inserting roles into the Role table
+INSERT INTO Role (ID_Role, Role_Name) VALUES (1, 'Vendor');
+INSERT INTO Role (ID_Role, Role_Name) VALUES (2, 'Buyer');
