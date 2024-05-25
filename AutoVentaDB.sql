@@ -1,97 +1,69 @@
 
-
 DROP DATABASE IF EXISTS AutoVentaDB;
 
 CREATE DATABASE AutoVentaDB;
 
 USE AutoVentaDB;
 
--- user table
-CREATE TABLE Usuario (
-    ID_Usuario INT,
-    Cedula LONG,
-    Correo_Electronico VARCHAR(255),
-    Contraseña VARCHAR(255),
-    Nombre VARCHAR(255),
-    Apellido VARCHAR(255),
-    Credito LONG,
-    Fecha_Registro DATE
+
+CREATE TABLE User (
+    ID_User INT,
+    ID_Number LONG,
+    Email VARCHAR(255),
+    Password VARCHAR(255),
+    First_Name VARCHAR(255),
+    Last_Name VARCHAR(255),
+    Credit LONG,
+    Registration_Date DATE,
+    Rol VARCHAR(255)
 );
 
---Rol table
-CREATE TABLE Rol(
-    ID_Rol INT,
-    NombreRol VARCHAR(255)
-);
 
--- Usurio_Rol table
-CREATE TABLE Usuario_Rol(
-    ID_Usuario INT,
-    ID_Rol INT
-);
-
--- Car table 
 
 CREATE TABLE Car(
     ID_Car INT,
-    ID_Vendedor INT,
-    Placa VARCHAR(255),
-    Marca VARCHAR(255),
-    Modelo VARCHAR(255),
-    Anio INT,
+    ID_Seller INT,
+    Plate VARCHAR(255),
+    Brand VARCHAR(255),
+    Model VARCHAR(255),
+    Year INT,
     Color VARCHAR(255),
-    Puertas INT,
+    Doors INT,
     Cc INT,
-    Transmision VARCHAR(255),
-    Tipo_Combustible VARCHAR(255),
-    Usado VARCHAR(255),
-    Kilómetros LONG,
-    Precio LONG
+    Transmission VARCHAR(255),
+    Fuel_Type VARCHAR(255),
+    Used VARCHAR(255),
+    Kilometers LONG,
+    Image VARCHAR(255),
+    Price LONG
 );
 
--- Favorites table
 
 CREATE TABLE Favorites(
     ID_Car INT,
-    ID_Usuario INT
+    ID_User INT
 );
 
 
--- Addinng primary keys
 
-ALTER TABLE Usuario MODIFY COLUMN ID_Usuario INT AUTO_INCREMENT,
-ADD PRIMARY KEY (ID_Usuario);
-ALTER TABLE Rol ADD PRIMARY KEY (ID_Rol);
-ALTER TABLE Usuario_Rol ADD PRIMARY KEY (ID_Usuario, ID_Rol);
+ALTER TABLE User MODIFY COLUMN ID_User INT AUTO_INCREMENT,
+ADD PRIMARY KEY (ID_User);
 ALTER TABLE Car MODIFY COLUMN ID_Car INT AUTO_INCREMENT,
 ADD PRIMARY KEY (ID_Car);
-ALTER TABLE Favorites ADD PRIMARY KEY (ID_Usuario, ID_Car);
-
--- Adding foreign keys
-
-ALTER TABLE Usuario_Rol ADD FOREIGN KEY (ID_Usuario) REFERENCES Usuario(ID_Usuario) ON DELETE CASCADE;
-ALTER TABLE Usuario_Rol ADD FOREIGN KEY (ID_Rol) REFERENCES Rol(ID_Rol) ON DELETE CASCADE;
-ALTER TABLE Car ADD FOREIGN KEY (ID_Vendedor) REFERENCES Usuario(ID_Usuario) ON DELETE CASCADE;
-ALTER TABLE Favorites ADD FOREIGN KEY (ID_Usuario) REFERENCES Usuario(ID_Usuario) ON DELETE CASCADE;
-ALTER TABLE Favorites ADD FOREIGN KEY (ID_Car) REFERENCES Rol(ID_Car) ON DELETE CASCADE;
-
-
--- Adding constraints
-ALTER TABLE Usuario ADD UNIQUE (Correo_Electronico);
-ALTER TABLE Car ADD UNIQUE (Placa);
+ALTER TABLE Favorites ADD PRIMARY KEY (ID_User, ID_Car);
 
 
 
 
+ALTER TABLE Car ADD FOREIGN KEY (ID_Seller) REFERENCES User(ID_User) ON DELETE CASCADE;
+ALTER TABLE Favorites ADD FOREIGN KEY (ID_User) REFERENCES User(ID_User) ON DELETE CASCADE;
+ALTER TABLE Favorites ADD FOREIGN KEY (ID_Car) REFERENCES Car(ID_Car) ON DELETE CASCADE;
 
+ALTER TABLE Car ADD UNIQUE (Plate);
+ALTER TABLE User ADD UNIQUE (Email);
 
-
-
-
-
-
-
-
-
-
+INSERT INTO User (ID_Number, Email, Password, First_Name, Last_Name, Credit, Registration_Date, Rol) 
+VALUES (20212578106, 'Danna@danna.com', '123456', 'Danna', 'Sepulveda', 0, '2024-05-25', 'Vendor');
+INSERT INTO User (ID_Number, Email, Password, First_Name, Last_Name, Credit, Registration_Date, Rol) 
+VALUES (20212578104, 'DannaVendedora@danna.com', '123456', 'Danna', 'Sepulveda', 0, '2024-05-25', 'Buyer');
 
