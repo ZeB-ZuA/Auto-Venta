@@ -44,6 +44,7 @@ CREATE TABLE Car(
     Fuel_Type VARCHAR(255),
     Used VARCHAR(255),
     Kilometers LONG,
+    Image VARCHAR(255),
     Price LONG
 );
 
