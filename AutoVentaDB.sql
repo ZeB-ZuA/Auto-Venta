@@ -62,4 +62,8 @@ ALTER TABLE Favorites ADD FOREIGN KEY (ID_Car) REFERENCES Car(ID_Car) ON DELETE 
 ALTER TABLE Car ADD UNIQUE (Plate);
 ALTER TABLE User ADD UNIQUE (Email);
 
+INSERT INTO User (ID_Number, Email, Password, First_Name, Last_Name, Credit, Registration_Date, Rol) 
+VALUES (20212578106, 'Danna@danna.com', '123456', 'Danna', 'Sepulveda', 0, '2024-05-25', 'Vendor');
+INSERT INTO User (ID_Number, Email, Password, First_Name, Last_Name, Credit, Registration_Date, Rol) 
+VALUES (20212578104, 'DannaVendedora@danna.com', '123456', 'Danna', 'Sepulveda', 0, '2024-05-25', 'Buyer');
 
