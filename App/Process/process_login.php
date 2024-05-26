@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user = $authService->logIn($email, $password, $rol); 
 
     if ($user) {
-        $userId = $user->getId(); // Asumiendo que tienes un método getId() en la clase User
+        $userId = $user->getId();
         if ($rol == 'Vendor') {
             header("Location: ../Vendor/VendorView.php?id=$userId");
             exit();

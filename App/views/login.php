@@ -37,7 +37,7 @@
                 </div>
             </form>
             <?php
-// Agregar depuración aquí
+
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "Correo electrónico ingresado: " . $_POST['email'] . "<br>";
                 echo "Rol seleccionado: " . $_POST['rol'] . "<br>";

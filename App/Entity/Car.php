@@ -17,8 +17,10 @@ class Car {
     private $image;
     private $price;
 
+    private $status;
+
     // Constructor
-    public function __construct($sellerId, $plate, $brand, $model, $year, $color, $doors, $cc, $transmission, $fuelType, $used, $kilometers, $image, $price) {
+    public function __construct($sellerId, $plate, $brand, $model, $year, $color, $doors, $cc, $transmission, $fuelType, $used, $kilometers, $image, $price, $status) {
         $this->sellerId = $sellerId;
         $this->plate = $plate;
         $this->brand = $brand;
@@ -33,6 +35,7 @@ class Car {
         $this->kilometers = $kilometers;
         $this->image = $image;
         $this->price = $price;
+        $this->status = $status;
     }
 
     // Getters and setters
@@ -155,5 +158,15 @@ class Car {
     public function setPrice($price) {
         $this->price = $price;
     }
+
+    public function getStatus() {
+        return $this->status;
+    }
+
+    public function setStatus($status) {
+        $this->status = $status;
+    }   
+
+    
 }
 ?>

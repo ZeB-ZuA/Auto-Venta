@@ -6,16 +6,16 @@
     <title>Vista Vendedor</title>
 </head>
 <body>
-    <?php
-    if (isset($_GET['id'])) {
+
+<?php
+if (isset($_GET['id'])) {
     $userId = htmlspecialchars($_GET['id']);
-    
-    echo "Usuario ID: " . $userId;
+    echo "<a href=\"./UserProfile.php?id=$userId\">Mi perfil</a></br>";
+    echo "<a href=\"./VendorCars.php?id=$userId\">Mis Carros</a>";
 } else {
     echo "No se recibió ID de usuario.";
 }
-    
-    ?>
+?>
 
 </body>
 </html>

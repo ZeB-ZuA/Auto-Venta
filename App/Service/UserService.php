@@ -34,7 +34,21 @@ class UserService implements UserRepository {
         return null;
     }
 
+    public function isVendor(int $id): bool {
+        $query = "SELECT * FROM User WHERE ID_User = ? AND Rol = 'Vendor'";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$id]);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $row ? true : false;
+    }
 
+    public function isBuyer(int $id): bool {
+        $query = "SELECT * FROM User WHERE ID_User = ? AND Rol = 'Buyer'";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$id]);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $row ? true : false;
+    }
 
 
     
@@ -96,7 +110,7 @@ class UserService implements UserRepository {
             $user->getLastName(),
             $user->getCredit(),
             $user->getRegistrationDate(),
-            $user->getRole(),
+            $user->getRol(),
             $user->getId()
         ]);
         return $stmt->rowCount() > 0;

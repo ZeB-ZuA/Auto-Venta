@@ -6,6 +6,8 @@ interface UserRepository {
     public function delete(int $id): bool;
     public function findByEmail(String $Email): ?User;
     public function findById(int $id): ?User;
+    public function isVendor(int $id): bool;
+    public function isBuyer(int $id): bool;
    
 }
 
