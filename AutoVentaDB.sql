@@ -74,7 +74,7 @@ VALUES
 (1, 'ABC1234', 'Toyota', 'Corolla', 2019, 'Rojo', 4, 1800, 'Automatico', 'Gasolina', 'No', 15000, '../uploads/toyotarojo.jpg', 15000, 'Available'),
 (1, 'XYZ5678', 'Honda', 'Civic', 2020, 'Azul', 4, 2000, 'Manual', 'Diesel', 'No', 10000, '../uploads/hondaCivic.jpg', 18000, 'Available'),
 (1, 'DEF9012', 'Ford', 'Fiesta', 2018, 'Blanco', 4, 1600, 'Automatico', 'Gasolina', 'si', 30000, '../uploads/fordBlanco.jpg', 12000, 'Available'),
-(1, 'DEF9013', 'Subaru', 'Impreza', 2023, 'Gris', 4, 1300, 'Manual', 'Gasolina', 'si', 80000, '../uploads/subaruGris.jpg', 20000, 'Available')
+(1, 'DEF9013', 'Subaru', 'Impreza', 2023, 'Gris', 4, 1300, 'Manual', 'Gasolina', 'si', 80000, '../uploads/subaruGris.jpg', 20000, 'Available');
 
 
 
