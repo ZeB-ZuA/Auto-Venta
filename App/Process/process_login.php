@@ -1,7 +1,7 @@
 <?php
 
-require_once 'AuthService.php';
-require_once './Service/UserService.php';
+require_once '../Service/AuthService.php';
+require_once '../Service/UserService.php';
 
 $userService = new UserService();
 $authService = new AuthService($userService);
@@ -17,10 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($user) {
         $userId = $user->getId(); // Asumiendo que tienes un método getId() en la clase User
         if ($rol == 'Vendor') {
-            header("Location: VendorView.php?id=$userId");
+            header("Location: ../Vendor/VendorView.php?id=$userId");
             exit();
         } elseif ($rol == 'Buyer') {
-            header("Location: BuyerView.php?id=$userId");
+            header("Location: ../Buyer/BuyerView.php?id=$userId");
             exit();
         }
     } else {

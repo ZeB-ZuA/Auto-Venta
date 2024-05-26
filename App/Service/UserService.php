@@ -12,6 +12,31 @@ class UserService implements UserRepository {
         $this->conn = $db->connect();
     }
 
+
+    public function findById(int $id): ?User {
+        $query = "SELECT * FROM User WHERE ID_User = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$id]);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($row) {
+            return new User(
+                $row['ID_Number'],
+                $row['Email'],
+                $row['Password'],
+                $row['First_Name'],
+                $row['Last_Name'],
+                $row['Rol'],
+                $row['ID_User'],
+                $row['Credit'],
+                $row['Registration_Date']
+            );
+        }
+        return null;
+    }
+
+
+
+
     
     public function findByEmail(String $Email): ?User {
         $query = "SELECT * FROM User WHERE Email = ?";
@@ -43,27 +68,7 @@ class UserService implements UserRepository {
         return $stmt->rowCount() > 0;
     }
 
-    public function read(int $id): ?User {
-        $query = "SELECT * FROM User WHERE ID_User=?";
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute([$id]);
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        if ($row) {
-            return new User(
-                $row['ID_Number'],
-                $row['Email'],
-                $row['Password'],
-                $row['First_Name'],
-                $row['Last_Name'],
-                $row['Rol'],
-                $row['ID_User'],
-                $row['Credit'],
-                $row['Registration_Date']
-            );
-        }
-        return null;
-    }
-
+ 
     public function save(User $user): bool {
         $query = "INSERT INTO User (ID_Number, Email, Password, First_Name, Last_Name, Credit, Registration_Date, Rol) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($query);

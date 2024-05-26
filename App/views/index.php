@@ -8,16 +8,28 @@
             content="width=device-width, initial-scale=1.0"
             />
         <title>Auto-Venta</title>
-        <link rel="stylesheet" href="styles.css" />
-        <link rel="stylesheet" href="css/style-header.css" />
-        <link rel="stylesheet" href="css/style-product.css" /> 
+        <link rel="stylesheet" href="../styles.css" />
+        <link rel="stylesheet" href="../css/style-header.css" />
+        <link rel="stylesheet" href="../css/style-feature.css" />
+        <link rel="stylesheet" href="../css/style-suppliers.css" /> 
+        <link rel="stylesheet" href="../css/style-product.css" /> 
    </head>
     <body>
-        <?php include 'views/header.php'; ?>
-
+        <?php include 'header.php'; ?>
+        <section class="banner">
+            <div class="content-banner">
+                <p>Tu nuevo compañero de viaje</p>
+                <h2>100% Certificado <br />Automoviles</h2>
+                <a href="#">Comprar ahora</a>
+            </div>
+        </section> 
+        
         <main class="main-content">
-            <?php include 'views/productsforsale.php'; ?>
-
+            <?php include 'features.php'; ?>
+            <?php include 'products.php'; ?>
+            <section id="suppliers">
+            <?php include 'suppliers.php'; ?>
+            </section>>
         </main>
 
         <footer class="footer">

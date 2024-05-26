@@ -1,6 +1,6 @@
 <?php
-require_once 'Connection.php';
-require_once './Entity/User.php';
+require_once '../Connection.php';
+require_once '../Entity/User.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $idNumber = $_POST['idNumber'];
