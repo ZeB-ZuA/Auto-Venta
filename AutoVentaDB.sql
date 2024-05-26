@@ -35,7 +35,8 @@ CREATE TABLE Car(
     Used VARCHAR(255),
     Kilometers LONG,
     Image VARCHAR(255),
-    Price LONG
+    Price LONG,
+    status VARCHAR(255)
 );
 
 
