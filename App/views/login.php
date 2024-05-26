@@ -12,7 +12,7 @@
 
         <div class="form">
             <h2>Iniciar Sesión</h2>
-            <form action="./process_login.php" method="POST">
+            <form action="../Process/process_login.php" method="POST">
                 <div class="inputBox">
                     <input type="text" name="email" placeholder="Email" required />
                     <i class='bx bxs-user' ></i>

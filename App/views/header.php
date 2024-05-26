@@ -20,7 +20,7 @@
         <nav class="navbar container">
             <i class="fa-solid fa-bars"></i>
             <ul class="menu">
-                <li><a href="login.php">Home</a></li>
+                <li><a href="./login.php">Home</a></li>
                 <li><a href="sale.php">Catálogo</a></li>
                 <li><a href="index.php#suppliers">Proveedores</a></li>
 

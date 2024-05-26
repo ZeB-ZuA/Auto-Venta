@@ -80,7 +80,7 @@ class UserService implements UserRepository {
             $user->getLastName(),
             $user->getCredit(),
             $user->getRegistrationDate(),
-            $user->getRole()
+            $user->getRol()
         ]);
         return $stmt->rowCount() > 0;
     }

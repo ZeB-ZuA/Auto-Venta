@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>Registro de Usuario</h2>
-    <form action="process_signup.php" method="POST">
+    <form action="../Process/process_signup.php" method="POST">
         <label for="idNumber">Número de Identificación:</label><br>
         <input type="text" id="idNumber" name="idNumber" required><br><br>
 
