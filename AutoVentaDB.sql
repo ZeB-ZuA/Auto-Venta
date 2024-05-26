@@ -35,7 +35,8 @@ CREATE TABLE Car(
     Used VARCHAR(255),
     Kilometers LONG,
     Image VARCHAR(255),
-    Price LONG
+    Price LONG,
+    status VARCHAR(255)
 );
 
 
@@ -66,4 +67,13 @@ INSERT INTO User (ID_Number, Email, Password, First_Name, Last_Name, Credit, Reg
 VALUES (20212578106, 'Danna@danna.com', '123456', 'Danna', 'Sepulveda', 0, '2024-05-25', 'Vendor');
 INSERT INTO User (ID_Number, Email, Password, First_Name, Last_Name, Credit, Registration_Date, Rol) 
 VALUES (20212578104, 'DannaVendedora@danna.com', '123456', 'Danna', 'Sepulveda', 0, '2024-05-25', 'Buyer');
+
+
+INSERT INTO Car (ID_Seller, Plate, Brand, Model, Year, Color, Doors, Cc, Transmission, Fuel_Type, Used, Kilometers, Image, Price, status)
+VALUES 
+(1, 'ABC1234', 'Toyota', 'Corolla', 2019, 'Red', 4, 1800, 'Automatic', 'Gasoline', 'No', 15000, 'car1.jpg', 15000, 'Available'),
+(1, 'XYZ5678', 'Honda', 'Civic', 2020, 'Blue', 4, 2000, 'Manual', 'Diesel', 'No', 10000, 'car2.jpg', 18000, 'Available'),
+(1, 'DEF9012', 'Ford', 'Fiesta', 2018, 'White', 4, 1600, 'Automatic', 'Gasoline', 'Yes', 30000, 'car3.jpg', 12000, 'Available');
+
+
 
