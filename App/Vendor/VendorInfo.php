@@ -14,7 +14,6 @@ if (isset($_GET['id'])) {
         echo "<tr><th>ID</th><td>" . htmlspecialchars($user->getIdNumber()) . "</td><td></td></tr>";
         echo "<tr><th>Nombre</th><td><span id='firstName'>" . htmlspecialchars($user->getFirstName()) . " " . htmlspecialchars($user->getLastName()) . "</span></td><td><button type='button' onclick='editField(\"firstName\", \"lastName\")'>Editar</button></td></tr>";
         echo "<tr><th>Email</th><td><span id='email'>" . htmlspecialchars($user->getEmail()) . "</span></td><td><button type='button' onclick='editField(\"email\")'>Editar</button></td></tr>";
-        echo "<tr><th>Crédito</th><td><span id='credit'>" . htmlspecialchars($user->getCredit()) . "</span></td><td><button type='button' onclick='editField(\"credit\")'>Editar</button></td></tr>";
         echo "<tr><th>Rol</th><td><span id='rol'>" . htmlspecialchars($user->getRol()) . "</span></td><td><button type='button' onclick='editField(\"rol\")'>Editar</button></td></tr>";
         echo "</table>";
         echo '<button type="submit">Guardar cambios</button>';
