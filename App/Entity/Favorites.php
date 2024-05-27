@@ -1,20 +1,20 @@
 <?php
 
 class Favorite {
-    private $carId;
+    private $Plate;
     private $userId;
 
-    public function __construct($carId, $userId) {
-        $this->carId = $carId;
+    public function __construct($Plate, $userId) {
+        $this->Plate = $Plate;
         $this->userId = $userId;
     }
 
     // Getters and setters
-    public function getCarId() {
-        return $this->carId;
+    public function getPlate() {
+        return $this->Plate;
     }
 
-    public function setCarId($carId) {
+    public function setPlate($carId) {
         $this->carId = $carId;
     }
 

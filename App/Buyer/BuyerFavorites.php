@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vista Vendedor</title>
+    <title>FAvoritos</title>
 </head>
 
 <body>
@@ -12,9 +12,8 @@
     <?php
     if (isset($_GET['id'])) {
         $userId = htmlspecialchars($_GET['id']);
-        echo'ID de usuario: '.$userId.'</br>';
-        echo "<a href=\"./UserProfile.php?id=$userId\">Mi perfil</a></br>";
-        echo "<a href=\"./BuyerFavorites.php?id=$userId\">Favoritos</a>";
+        echo'Favoritos de : '.$userId.'</br>';
+       
     } else {
         echo "No se recibió ID de usuario.";
     }
