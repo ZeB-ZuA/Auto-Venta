@@ -156,11 +156,9 @@ class CarService implements CarRepository
 
     public function update(Car $car): bool
     {
-        $query = "UPDATE Car SET ID_Seller = ?, Plate = ?, Brand = ?, Model = ?, Year = ?, Color = ?, Doors = ?, Cc = ?, Transmission = ?, Fuel_Type = ?, Used = ?, Kilometers = ?, Image = ?, Price = ?, status = ? WHERE ID_Car = ?";
+        $query = "UPDATE Car SET Brand = ?, Model = ?, Year = ?, Color = ?, Doors = ?, Cc = ?, Transmission = ?, Fuel_Type = ?, Used = ?, Kilometers = ?, Image = ?, Price = ?, status = ? WHERE Plate = ?";
         $stmt = $this->conn->prepare($query);
         $stmt->execute([
-            $car->getSellerId(),
-            $car->getPlate(),
             $car->getBrand(),
             $car->getModel(),
             $car->getYear(),
@@ -174,16 +172,17 @@ class CarService implements CarRepository
             $car->getImage(),
             $car->getPrice(),
             $car->getStatus(),
-            $car->getId()
+            $car->getPlate()
         ]);
         return $stmt->rowCount() > 0;
     }
+    
 
-    public function delete(int $id): bool
+    public function delete(String $plate): bool
     {
-        $query = "DELETE FROM Car WHERE ID_Car=?";
+        $query = "DELETE FROM Car WHERE Plate=?";
         $stmt = $this->conn->prepare($query);
-        $stmt->execute([$id]);
+        $stmt->execute([$plate]);
         return $stmt->rowCount() > 0;
     }
 

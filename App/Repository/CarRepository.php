@@ -4,7 +4,7 @@
 interface CarRepository {
     public function save(Car $car): bool;
     public function update(Car $car): bool;
-    public function delete(int $id): bool;
+    public function delete(string $plate): bool;
     public function findByBrand(String $brand): ?array;
     public function findById(int $id): ?Car;
     public function findByPlate(string $plate): ?Car;

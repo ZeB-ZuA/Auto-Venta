@@ -32,10 +32,19 @@
         <input type="number" id="cc" name="Cc" required><br>
 
         <label for="transmission">Transmisión:</label>
-        <input type="text" id="transmission" name="Transmission" required><br>
+        <select id="transmission" name="Transmission" required>
+            <option value="Manual">Manual</option>
+            <option value="Automática">Automática</option>
+            <option value="Semi-Automática">Semi-Automática</option>
+        </select><br>
 
         <label for="fuel_type">Tipo de Combustible:</label>
-        <input type="text" id="fuel_type" name="Fuel_Type" required><br>
+        <select id="fuel_type" name="Fuel_Type" required>
+            <option value="Gasolina">Gasolina</option>
+            <option value="Diesel">Diesel</option>
+            <option value="Híbrido">Híbrido</option>
+            <option value="Eléctrico">Eléctrico</option>
+        </select><br>
 
         <label for="used">Usado:</label>
         <select id="used" name="Used" required>
@@ -54,7 +63,10 @@
         <input type="number" id="price" name="Price" required><br>
 
         <label for="status">Estado:</label>
-        <input type="text" id="status" name="status" required><br>
+        <select id="status" name="status" required>
+            <option value="Disponible">Disponible</option>
+            <option value="Vendido">Vendido</option>
+        </select><br>
 
         <button type="submit">Guardar Carro</button>
     </form>
