@@ -66,7 +66,7 @@ ALTER TABLE User ADD UNIQUE (Email);
 INSERT INTO User (ID_Number, Email, Password, First_Name, Last_Name, Credit, Registration_Date, Rol) 
 VALUES (20212578106, 'Danna@danna.com', '123456', 'Danna', 'Sepulveda', 0, '2024-05-25', 'Vendor');
 INSERT INTO User (ID_Number, Email, Password, First_Name, Last_Name, Credit, Registration_Date, Rol) 
-VALUES (20212578104, 'DannaVendedora@danna.com', '123456', 'Danna', 'Sepulveda', 0, '2024-05-25', 'Buyer');
+VALUES (20212578104, 'DannaCompradora@danna.com', '123456', 'Danna', 'Sepulveda', 0, '2024-05-25', 'Buyer');
 
 
 INSERT INTO Car (ID_Seller, Plate, Brand, Model, Year, Color, Doors, Cc, Transmission, Fuel_Type, Used, Kilometers, Image, Price, status)
