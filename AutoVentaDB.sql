@@ -41,7 +41,7 @@ CREATE TABLE Car(
 
 
 CREATE TABLE Favorites(
-    Plate INT,
+    Plate VARCHAR(255),
     ID_User INT
 );
 
