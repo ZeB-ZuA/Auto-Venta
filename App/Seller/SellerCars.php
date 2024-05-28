@@ -2,7 +2,7 @@
 require_once "../Service/CarService.php";
 
 if (isset($_GET['id'])) {
-    $sellerId = htmlspecialchars($_GET['id']);
+    $sellerId = intval(htmlspecialchars($_GET['id']));
     $carService = new CarService();
     $cars = $carService->findBySellerId($sellerId);
 } else {

@@ -1,10 +1,10 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-if (isset($_GET['id'])) {
-    $sellerId = htmlspecialchars($_GET['id']);
-}
-
+    if (isset($_GET['id']) ) {
+        $sellerId = (int) $_GET['id']; // Asegúrate de que el id sea un entero
+        
+    } 
 
     if (isset($_POST['plate'])) {
 

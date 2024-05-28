@@ -11,13 +11,16 @@
     <h2>Editar Carro</h2>
     <?php
     require_once "../Service/CarService.php";
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+    }
     if (isset($_GET['plate'])) {
         $carPlate = htmlspecialchars($_GET['plate']);
         $carService = new CarService();
         $car = $carService->findByPlate($carPlate);
 
         if ($car) {
-            echo '<form method="POST" action="../Process/process_edit_car.php" enctype="multipart/form-data">';
+            echo '<form method="POST" action="../Process/process_edit_car.php?id='.$id.'" enctype="multipart/form-data">';
             echo '<input type="hidden" name="plate" value="' . $car->getPlate() . '">';
             echo 'Placa <strong>' . $car->getPlate() . '</strong><br>';
             echo 'Marca: <input type="text" name="brand" value="' . $car->getBrand() . '"><br>';
