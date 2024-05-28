@@ -13,6 +13,7 @@ if (isset($_GET['id'])) {
         echo "<table>";
         echo "<tr><th>ID</th><td>" . htmlspecialchars($user->getIdNumber()) . "</td><td></td></tr>";
         echo "<tr><th>Nombre</th><td><span id='firstName'>" . htmlspecialchars($user->getFirstName()) . " " . htmlspecialchars($user->getLastName()) . "</span></td><td><button type='button' onclick='editField(\"firstName\", \"lastName\")'>Editar</button></td></tr>";
+        echo "<tr><th>Credito</th><td><span id='credit'>" . htmlspecialchars($user->getCredit()) . "</span>";
         echo "<tr><th>Email</th><td><span id='email'>" . htmlspecialchars($user->getEmail()) . "</span></td><td><button type='button' onclick='editField(\"email\")'>Editar</button></td></tr>";
         echo "<tr><th>Rol</th><td><span id='rol'>" . htmlspecialchars($user->getRol()) . "</span></td><td><button type='button' onclick='editField(\"rol\")'>Editar</button></td></tr>";
         echo "</table>";
@@ -25,7 +26,6 @@ if (isset($_GET['id'])) {
     echo "No se recibió ID de usuario.";
 }
 ?>
-
 <script>
 function editField(...fields) {
     fields.forEach(field => {
