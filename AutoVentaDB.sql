@@ -66,7 +66,7 @@ ALTER TABLE Favorites ADD FOREIGN KEY (Plate) REFERENCES Car(Plate) ON DELETE CA
 
 
 INSERT INTO User (ID_Number, Email, Password, First_Name, Last_Name, Credit, Registration_Date, Rol) 
-VALUES (20212578106, 'Danna@danna.com', '123456', 'Danna', 'Sepulveda', 0, '2024-05-25', 'Vendor');
+VALUES (20212578106, 'Danna@danna.com', '123456', 'Danna', 'Sepulveda', 0, '2024-05-25', 'Seller');
 INSERT INTO User (ID_Number, Email, Password, First_Name, Last_Name, Credit, Registration_Date, Rol) 
 VALUES (20212578104, 'DannaCompradora@danna.com', '123456', 'Danna', 'Sepulveda', 0, '2024-05-25', 'Buyer');
 
