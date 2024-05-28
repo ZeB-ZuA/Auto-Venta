@@ -58,11 +58,12 @@ ALTER TABLE Favorites ADD PRIMARY KEY (ID_User, Plate);
 
 ALTER TABLE Car ADD FOREIGN KEY (ID_Seller) REFERENCES User(ID_User) ON DELETE CASCADE;
 ALTER TABLE Favorites ADD FOREIGN KEY (ID_User) REFERENCES User(ID_User) ON DELETE CASCADE;
+ALTER TABLE Car ADD UNIQUE (Plate);
+ALTER TABLE User ADD UNIQUE (Email);
 CREATE INDEX idx_plate ON Car (Plate);
 ALTER TABLE Favorites ADD FOREIGN KEY (Plate) REFERENCES Car(Plate) ON DELETE CASCADE;
 
-ALTER TABLE Car ADD UNIQUE (Plate);
-ALTER TABLE User ADD UNIQUE (Email);
+
 
 INSERT INTO User (ID_Number, Email, Password, First_Name, Last_Name, Credit, Registration_Date, Rol) 
 VALUES (20212578106, 'Danna@danna.com', '123456', 'Danna', 'Sepulveda', 0, '2024-05-25', 'Vendor');
