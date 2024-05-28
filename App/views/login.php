@@ -24,7 +24,7 @@
                 <div>
                     <select class="form-select" id="rol" name="rol">
                         <option>-Seleccione tipo de usuario-</option>
-                        <option value="Vendor">Vendedor</option>
+                        <option value="Seller">Vendedor</option>
                         <option value="Buyer">Comprador</option>
                     </select>
 

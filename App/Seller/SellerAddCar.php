@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>Agregar Carro</h2>
-    <form method="POST" action="../Process/process_VendorAddCar.php" enctype="multipart/form-data">
+    <form method="POST" action="../Process/process_SellerAddCar.php" enctype="multipart/form-data">
         <input type="hidden" name="ID_Seller" value="<?php echo htmlspecialchars($_GET['id']); ?>">
 
         <label for="plate">Placa:</label>

@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     );
 
     if ($carService->save($car)) {
-        header("Location: ../Vendor/VendorCars.php?id=" . $_POST['ID_Seller']);
+        header("Location: ../Seller/SellerCars.php?id=" . $_POST['ID_Seller']);
         exit;
     } else {
         echo "Failed to add car.";

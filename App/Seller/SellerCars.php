@@ -49,7 +49,7 @@ if (isset($_GET['id'])) {
         <h2>Mis Carros</h2>
     </div>
     <div>
-        <a href="./VendorAddCar.php?id=<?php echo $sellerId; ?>">Agregar Carros</a></br>
+        <a href="./SellerAddCar.php?id=<?php echo $sellerId; ?>">Agregar Carros</a></br>
     </div>
 
     <div class="grid-container">
@@ -76,7 +76,7 @@ if (isset($_GET['id'])) {
                             style="width:100px;height:auto;"><br>
                         <strong>Precio:</strong> <?php echo $car->getPrice(); ?> <br>
                        
-                        <a href="./VendorEditCar.php?plate=<?php echo $car->getPlate(); ?>">Editar</a>
+                        <a href="./SellerEditCar.php?plate=<?php echo $car->getPlate(); ?>&id=<?php echo $sellerId;  ?>">Editar</a>
                         <form method="POST">
                             <input type="hidden" name="plate" value="<?php echo $car->getPlate(); ?>">
                             <button type="submit" name="delete">Eliminar</button>

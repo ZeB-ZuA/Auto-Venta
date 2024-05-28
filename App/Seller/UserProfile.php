@@ -10,7 +10,7 @@
     <div>
         <h2>Mi perfil</h2>
 
-        <?php require_once 'VendorInfo.php'; ?>
+        <?php require_once 'SellerInfo.php'; ?>
     </div>
 </body>
 

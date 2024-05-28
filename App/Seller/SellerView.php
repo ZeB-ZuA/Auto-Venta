@@ -13,7 +13,7 @@
     if (isset($_GET['id'])) {
         $userId = htmlspecialchars($_GET['id']);
         echo "<a href=\"./UserProfile.php?id=$userId\">Mi perfil</a></br>";
-        echo "<a href=\"./VendorCars.php?id=$userId\">Mis Carros</a>";
+        echo "<a href=\"./SellerCars.php?id=$userId\">Mis Carros</a>";
     } else {
         echo "No se recibió ID de usuario.";
     }

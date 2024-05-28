@@ -16,8 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($user) {
         $userId = $user->getId();
-        if ($rol == 'Vendor') {
-            header("Location: ../Vendor/VendorView.php?id=$userId");
+        if ($rol == 'Seller') {
+            header("Location: ../Seller/SellerView.php?id=$userId");
             exit();
         } elseif ($rol == 'Buyer') {
             header("Location: ../Buyer/BuyerView.php?id=$userId");
