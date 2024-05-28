@@ -1,47 +1,36 @@
-
 <?php
+require_once __DIR__ . '/../Service/UserService.php';
+require_once __DIR__ . '/../Entity/User.php';
 
+// Verificar si el formulario ha sido enviado
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  
 
-// Dentro de la sección donde procesas el formulario (en EditUser.php)
+    $id = htmlspecialchars($_POST['id']);
+    $idNumber = htmlspecialchars($_POST['idNumber']); 
+    $firstName = htmlspecialchars($_POST['firstName']);
+    $lastName = htmlspecialchars($_POST['lastName']);
+    $email = htmlspecialchars($_POST['email']);
+    $rol = htmlspecialchars($_POST['rol']);
+    $credit = htmlspecialchars($_POST['credit']);
+    $password = htmlspecialchars($_POST['password']);
+    $registrationDate = htmlspecialchars($_POST['registrationDate']);
 
-// Función para limpiar los datos del formulario
-function clean_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
+    $user = new User($idNumber, $email, $password, $firstName, $lastName, $rol, $id, $credit, $registrationDate);
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $userId = clean_input($_POST['id']);
     $userService = new UserService();
-    $user = $userService->findById($userId);
+    $result = $userService->update($user);
 
-    if ($user) {
-        if (isset($_POST['firstName']) && isset($_POST['lastName'])) {
-            $firstName = clean_input($_POST['firstName']);
-            $lastName = clean_input($_POST['lastName']);
-            $user->setFirstName($firstName);
-            $user->setLastName($lastName);
-        }
-        if (isset($_POST['email'])) {
-            $email = clean_input($_POST['email']);
-            $user->setEmail($email);
-        }
-        
-        if (isset($_POST['rol'])) {
-            $rol = clean_input($_POST['rol']);
-            $user->setRol($rol);
-        }
-
-        $userService->update($user); 
-        header("Location: ./UserProfile.php?id=$userId");
+    if ($result) {
+        header("Location: ./UserProfile.php?id=$id");
         exit();
-    } else {
-        echo "Usuario no encontrado.";
-    }
-} else {
-    echo "Solicitud no válida.";
-}
 
+
+    } else {
+        echo "Error al actualizar el usuario.";
+    }
+
+} else {
+    echo "Método de solicitud no permitido.";
+}
 ?>
