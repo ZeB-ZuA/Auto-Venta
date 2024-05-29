@@ -16,6 +16,7 @@
         echo "<div class=\"card\">";
         echo "<button onclick=\"window.location.href='./UserProfile.php?id=$userId'\">Mi perfil</button>";
         echo "<button onclick=\"window.location.href='./SellerCars.php?id=$userId'\">Mis Carros</button>";
+        echo "<button onclick=\"window.location.href='./SellerFiles.php?id=$userId'\">Mis Ventas</button>";
         echo "</div>";
     } else {
         echo "<div class=\"card\">";
