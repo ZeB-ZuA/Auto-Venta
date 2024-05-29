@@ -8,6 +8,8 @@ interface UserRepository {
     public function findById(int $id): ?User;
     public function isVendor(int $id): bool;
     public function isBuyer(int $id): bool;
+
+    public function updateCredit(int $id, int $credit): bool;
    
 }
 

@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../Service/UserService.php';
 require_once __DIR__ . '/../Entity/User.php';
 
-// Verificar si el formulario ha sido enviado
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   
 

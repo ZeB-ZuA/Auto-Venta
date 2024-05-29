@@ -15,5 +15,9 @@ interface CarRepository {
     public function findByUsed(String $used): ?array;
 
     public function findBySellerId(int $id): ?array;
+
+    public function buy(int $id, String $plate): bool;
+
+    public function findByStatus(string $status): ?array;
 }
 ?>

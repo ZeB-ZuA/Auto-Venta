@@ -16,6 +16,20 @@ class UserService implements UserRepository {
         }
     }
 
+    public function updateCredit(int $id, int $credit): bool {
+        try {
+            $query = "UPDATE User SET Credit = ? WHERE ID_User = ?";
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute([$credit, $id]);
+            return $stmt->rowCount() > 0;
+        } catch (PDOException $e) {
+            
+            error_log("Error al actualizar crédito: " . $e->getMessage());
+            return false;
+        }
+    }
+
+
     public function findById(int $id): ?User {
         try {
             $query = "SELECT * FROM User WHERE ID_User = ?";

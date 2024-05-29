@@ -1,6 +1,7 @@
 <?php
-require_once('../Repository/FavoritesRepository.php');
+require_once '../Repository/FavoritesRepository.php';
 require_once __DIR__ . '/../Connection.php';
+require_once '../Entity/Car.php';
 
 class FavoritesSercive implements FavoritesRepository
 {

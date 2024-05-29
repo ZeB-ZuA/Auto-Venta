@@ -1,22 +1,22 @@
 <?php
 require_once "../Service/CarService.php";
 
-$carService = new CarService();
-$cars = $carService->findAll();
-
-if (isset(  $_GET['id'])){
-    $userId = htmlspecialchars($_GET['id']);
+if (isset($_GET['id'])) {
+    $sellerId = intval(htmlspecialchars($_GET['id']));
+    $carService = new CarService();
+    $cars = $carService->findBySellerId($sellerId);
+} else {
+    $cars = [];
 }
-
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de Carros</title>
+    <title>Car List</title>
     <style>
         .grid-container {
             display: grid;
@@ -46,9 +46,8 @@ if (isset(  $_GET['id'])){
 
 <body>
     <div>
-        <h2>Listado de Carros Disponibles</h2>
+        <h2>Mis Compras</h2>
     </div>
-
     <div class="grid-container">
         <?php if ($cars): ?>
             <?php foreach ($cars as $car): ?>
@@ -58,26 +57,25 @@ if (isset(  $_GET['id'])){
                         <strong>Color:</strong> <?php echo $car->getColor(); ?> <br>
                         <strong>Año:</strong> <?php echo $car->getYear(); ?> <br>
                         <strong>Status:</strong> <?php echo $car->getStatus(); ?> <br>
-                         <a href="../Process/process_add_favorites.php?id=<?php echo $userId; ?>&plate=<?php echo $car->getPlate(); ?>">Favoritos</a></br>
+
                     </div>
                     <div class="card-details">
                         <strong>Placa:</strong> <?php echo $car->getPlate(); ?> <br>
                         <strong>Modelo:</strong> <?php echo $car->getModel(); ?> <br>
                         <strong>Puertas:</strong> <?php echo $car->getDoors(); ?> <br>
                         <strong>Cilindraje:</strong> <?php echo $car->getCc(); ?> <br>
-                        <strong>Transmisión:</strong> <?php echo $car->getTransmission(); ?> <br>
+                        <strong>Transmision:</strong> <?php echo $car->getTransmission(); ?> <br>
                         <strong>Combustible:</strong> <?php echo $car->getFuelType(); ?> <br>
                         <strong>Usado:</strong> <?php echo $car->getUsed(); ?> <br>
-                        <strong>Kilómetros:</strong> <?php echo $car->getKilometers(); ?> <br>
-                        <strong>Imagen:</strong> <img src="<?php echo $car->getImage(); ?>" alt="Imagen del Carro"
+                        <strong>Kilometros:</strong> <?php echo $car->getKilometers(); ?> <br>
+                        <strong>imagen:</strong> <img src="<?php echo $car->getImage(); ?>" alt="Car Image"
                             style="width:100px;height:auto;"><br>
                         <strong>Precio:</strong> <?php echo $car->getPrice(); ?> <br>
-                        <a href="../Process/process_buy_car.php?id=<?php echo $userId; ?>&plate=<?php echo $car->getPlate(); ?>">COMPRAR</a>
                     </div>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
-            <p>No hay carros disponibles en este momento.</p>
+            <p>No carros comprados.</p>
         <?php endif; ?>
     </div>
 
