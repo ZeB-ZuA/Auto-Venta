@@ -4,10 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agregar Carro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            background-color: #7ab5c7;
+            margin: 0;
+            padding: 40px; 
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            background: #fff;
+            padding: 15px 40px; 
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 250px; 
+            font-size: 14px;
+        }
+        form label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        form input[type="text"],
+        form input[type="number"],
+        form select,
+        form input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        form button {
+            background-color: #7ab5c7;
+            color: white;
+            border: none;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin-top: 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+        }
+        form button:hover {
+            background-color: #669fa7;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px 0;
+        }
+    </style>
 </head>
 <body>
-    <h2>Agregar Carro</h2>
+    
     <form method="POST" action="../Process/process_SellerAddCar.php" enctype="multipart/form-data">
+        <h2>Agregar Carro</h2>
         <input type="hidden" name="ID_Seller" value="<?php echo htmlspecialchars($_GET['id']); ?>">
 
         <label for="plate">Placa:</label>

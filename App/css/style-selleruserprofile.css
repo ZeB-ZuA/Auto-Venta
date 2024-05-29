@@ -31,7 +31,7 @@ body {
 .card button, .card input[type="submit"] {
     background-color: #7ab5c7;
     border: none;
-    color: white;
+    color: rgb(0, 0, 0);
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
