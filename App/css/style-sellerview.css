@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    background: url('../img/sellerview.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.card {
+    width: 100%;
+    max-width: 400px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    text-align: center;
+}
+.card button {
+    background-color: #7ab5c7;
+    border: none;
+    color: white;
+    padding: 45px 45px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 22px;
+    margin: 10px 2px;
+    cursor: pointer;
+    border-radius: 9px;
+    font-family: "Poppins", sans-serif;
+}
+.card button:hover {
+    background-color: #0056b3;
+}

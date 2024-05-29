@@ -5,6 +5,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Carro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            font-size: 14px;
+        }
+        form input[type="text"],
+        form select,
+        form input[type="file"] {
+            width: 100%;
+            padding: 6px;
+            margin: 6px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        form input[type="submit"] {
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 0;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        form input[type="submit"]:hover {
+            background-color: #4cae4c;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 8px auto;
+        }
+    </style>
 </head>
 
 <body>
@@ -22,7 +79,7 @@
         if ($car) {
             echo '<form method="POST" action="../Process/process_edit_car.php?id='.$id.'" enctype="multipart/form-data">';
             echo '<input type="hidden" name="plate" value="' . $car->getPlate() . '">';
-            echo 'Placa <strong>' . $car->getPlate() . '</strong><br>';
+            echo '<p>Placa <strong>' . $car->getPlate() . '</strong></p>';
             echo 'Marca: <input type="text" name="brand" value="' . $car->getBrand() . '"><br>';
             echo 'Modelo: <input type="text" name="model" value="' . $car->getModel() . '"><br>';
             echo 'Año: <input type="text" name="year" value="' . $car->getYear() . '"><br>';
@@ -41,9 +98,9 @@
             echo '<option value="Eléctrico" ' . ($car->getFuelType() == "Eléctrico" ? 'selected' : '') . '>Eléctrico</option>';
             echo '</select><br>';
             echo 'Usado: <input type="text" name="used" value="' . $car->getUsed() . '"><br>';
-            echo 'Kiloemtros: <input type="text" name="km" value="' . $car->getKilometers() . '"><br>';
+            echo 'Kilometros: <input type="text" name="km" value="' . $car->getKilometers() . '"><br>';
             echo '<input type="hidden" name="image" value="' . $car->getImage() . '">';
-            echo 'Imagen: <img src="' . $car->getImage() . '" alt="Imagen actual" style="max-width: 200px;"><br>';
+            echo 'Imagen: <img src="' . $car->getImage() . '" alt="Imagen actual"><br>';
             echo 'Nueva imagen: <input type="file" name="newImage" accept="image/*"><br>';
             echo 'Precio: <input type="text" name="price" value="' . $car->getPrice() . '"><br>';
             echo 'Estado: <select name="status">';

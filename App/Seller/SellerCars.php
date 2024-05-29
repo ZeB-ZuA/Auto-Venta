@@ -11,92 +11,81 @@ if (isset($_GET['id'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car List</title>
-    <style>
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-            padding: 20px;
-        }
-
-        .card {
-            border: 1px solid #ccc;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .card-header {
-            cursor: pointer;
-        }
-
-        .card-details {
-            display: none;
-            margin-top: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/style-sellercars.css" /> 
 </head>
 
 <body>
-    <div>
+    <div class="header">
         <h2>Mis Carros</h2>
+        <a href="./SellerAddCar.php?id=<?php echo $sellerId; ?>" class="button">Agregar Carros</a>
     </div>
-    <div>
-        <a href="./SellerAddCar.php?id=<?php echo $sellerId; ?>">Agregar Carros</a></br>
-    </div>
-
-    <div class="grid-container">
-        <?php if ($cars): ?>
-            <?php foreach ($cars as $car): ?>
-                <div class="card">
-                    <div class="card-header">
-                        <strong>Marca:</strong> <?php echo $car->getBrand(); ?> <br>
-                        <strong>Color:</strong> <?php echo $car->getColor(); ?> <br>
-                        <strong>Año:</strong> <?php echo $car->getYear(); ?> <br>
-                        <strong>Status:</strong> <?php echo $car->getStatus(); ?> <br>
-
+    <div class="card-container">
+        <div class="grid-container">
+            <?php if ($cars): ?>
+                <?php foreach ($cars as $car): ?>
+                    <div class="card">
+                        <div class="card-header" onclick="toggleDetails(this)">
+                            <strong>Marca:</strong> <?php echo $car->getBrand(); ?> <br>
+                            <strong>Color:</strong> <?php echo $car->getColor(); ?> <br>
+                            <strong>Año:</strong> <?php echo $car->getYear(); ?> <br>
+                            <strong>Status:</strong> <?php echo $car->getStatus(); ?> <br>
+                        </div>
+                        <div class="card-details">
+                            <strong>Placa:</strong> <?php echo $car->getPlate(); ?> <br>
+                            <strong>Modelo:</strong> <?php echo $car->getModel(); ?> <br>
+                            <strong>Puertas:</strong> <?php echo $car->getDoors(); ?> <br>
+                            <strong>Cilindraje:</strong> <?php echo $car->getCc(); ?> <br>
+                            <strong>Transmisión:</strong> <?php echo $car->getTransmission(); ?> <br>
+                            <strong>Combustible:</strong> <?php echo $car->getFuelType(); ?> <br>
+                            <strong>Usado:</strong> <?php echo $car->getUsed() ? 'Sí' : 'No'; ?> <br>
+                            <strong>Kilómetros:</strong> <?php echo $car->getKilometers(); ?> <br>
+                            <strong>Imagen:</strong> <img src="<?php echo $car->getImage(); ?>" alt="Car Image"><br>
+                            <strong>Precio:</strong> <?php echo $car->getPrice(); ?> <br>
+                            <a href="./SellerEditCar.php?plate=<?php echo $car->getPlate(); ?>&id=<?php echo $sellerId; ?>">Editar</a>
+                            <form method="POST">
+                                <input type="hidden" name="plate" value="<?php echo $car->getPlate(); ?>">
+                                <button type="submit" name="delete">Eliminar</button>
+                            </form>
+                        </div>
                     </div>
-                    <div class="card-details">
-                        <strong>Placa:</strong> <?php echo $car->getPlate(); ?> <br>
-                        <strong>Modelo:</strong> <?php echo $car->getModel(); ?> <br>
-                        <strong>Puertas:</strong> <?php echo $car->getDoors(); ?> <br>
-                        <strong>Cilindraje:</strong> <?php echo $car->getCc(); ?> <br>
-                        <strong>Transmision:</strong> <?php echo $car->getTransmission(); ?> <br>
-                        <strong>Combustible:</strong> <?php echo $car->getFuelType(); ?> <br>
-                        <strong>Usado:</strong> <?php echo $car->getUsed(); ?> <br>
-                        <strong>Kilometros:</strong> <?php echo $car->getKilometers(); ?> <br>
-                        <strong>imagen:</strong> <img src="<?php echo $car->getImage(); ?>" alt="Car Image"
-                            style="width:100px;height:auto;"><br>
-                        <strong>Precio:</strong> <?php echo $car->getPrice(); ?> <br>
-                       
-                        <a href="./SellerEditCar.php?plate=<?php echo $car->getPlate(); ?>&id=<?php echo $sellerId;  ?>">Editar</a>
-                        <form method="POST">
-                            <input type="hidden" name="plate" value="<?php echo $car->getPlate(); ?>">
-                            <button type="submit" name="delete">Eliminar</button>
-                        </form>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <p>No cars found for this seller.</p>
-        <?php endif; ?>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>No se encontraron carros para este vendedor.</p>
+            <?php endif; ?>
+        </div>
     </div>
 
     <script>
+        function toggleDetails(header) {
+            var details = header.nextElementSibling;
+
+            var allDetails = document.querySelectorAll('.card-details');
+            allDetails.forEach(function (detail) {
+                if (detail !== details) {
+                    detail.style.display = 'none';
+                    detail.parentElement.style.height = '';
+                }
+            });
+
+            if (details.style.display === 'none' || details.style.display === '') {
+                details.style.display = 'block';
+                header.parentElement.style.height = 'auto';
+            } else {
+                details.style.display = 'none';
+                header.parentElement.style.height = '';
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function () {
-            var headers = document.querySelectorAll('.card-header');
-            headers.forEach(function (header) {
-                header.addEventListener('click', function () {
-                    var details = this.nextElementSibling;
-                    details.style.display = details.style.display === 'none' ? 'block' : 'none';
-                });
+            var details = document.querySelectorAll('.card-details');
+            details.forEach(function (detail) {
+                detail.style.display = 'none';
             });
         });
     </script>
@@ -111,12 +100,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete'])) {
         require_once "../Service/CarService.php";
         $carService = new CarService();
         if ($carService->delete($plate)) {
-          }
+            // Car deleted successfully
         } else {
             echo "Error al eliminar el carro.";
         }
     } else {
         echo "Placa del carro no especificada.";
     }
-
+}
 ?>
