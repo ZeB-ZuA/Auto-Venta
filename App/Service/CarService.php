@@ -3,7 +3,6 @@ require_once __DIR__ . '/../Connection.php';
 require_once __DIR__ . '/../Entity/Car.php';
 require_once __DIR__ . '/../Repository/CarRepository.php';
 
-
 class CarService implements CarRepository
 {
 
@@ -36,7 +35,26 @@ class CarService implements CarRepository
         );
     }
 
+    public function findByStatus(string $status): array|null
+    {
+        $query = "SELECT * FROM Car WHERE status = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$status]);
+        $cars = [];
+        while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+            $cars[] = $this->createCarFromRow($row);
+        }
+        return $cars;
+    }
 
+    public function buy(int $id, string $plate): bool
+    {
+        $query = "UPDATE Car SET status = 'Vendido', ID_Seller =? WHERE Plate = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$id, $plate]);
+
+        return $stmt->rowCount() > 0;
+    }
 
     public function findBySellerId(int $id): array|null
     {
@@ -176,9 +194,9 @@ class CarService implements CarRepository
         ]);
         return $stmt->rowCount() > 0;
     }
-    
 
-    public function delete(String $plate): bool
+
+    public function delete(string $plate): bool
     {
         $query = "DELETE FROM Car WHERE Plate=?";
         $stmt = $this->conn->prepare($query);

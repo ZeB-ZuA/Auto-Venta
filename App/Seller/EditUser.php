@@ -1,31 +1,36 @@
 <?php
-require_once '../Service/UserService.php';
+require_once __DIR__ . '/../Service/UserService.php';
+require_once __DIR__ . '/../Entity/User.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $userId = htmlspecialchars($_POST['id']);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  
+
+    $id = htmlspecialchars($_POST['id']);
+    $idNumber = htmlspecialchars($_POST['idNumber']); 
+    $firstName = htmlspecialchars($_POST['firstName']);
+    $lastName = htmlspecialchars($_POST['lastName']);
+    $email = htmlspecialchars($_POST['email']);
+    $rol = htmlspecialchars($_POST['rol']);
+    $credit = htmlspecialchars($_POST['credit']);
+    $password = htmlspecialchars($_POST['password']);
+    $registrationDate = htmlspecialchars($_POST['registrationDate']);
+
+    $user = new User($idNumber, $email, $password, $firstName, $lastName, $rol, $id, $credit, $registrationDate);
+
     $userService = new UserService();
-    $user = $userService->findById($userId);
+    $result = $userService->update($user);
 
-    if ($user) {
-        if (isset($_POST['firstName']) && isset($_POST['lastName'])) {
-            $user->setFirstName(htmlspecialchars($_POST['firstName']));
-            $user->setLastName(htmlspecialchars($_POST['lastName']));
-        }
-        if (isset($_POST['email'])) {
-            $user->setEmail(htmlspecialchars($_POST['email']));
-        }
-        
-        if (isset($_POST['rol'])) {
-            $user->setRol(htmlspecialchars($_POST['rol']));
-        }
-
-        $userService->update($user); 
-        header("Location: ./UserProfile.php?id=$userId");
+    if ($result) {
+        header("Location: ./UserProfile.php?id=$id");
         exit();
+
+
     } else {
-        echo "Usuario no encontrado.";
+        echo "Error al actualizar el usuario.";
     }
+
 } else {
-    echo "Solicitud no válida.";
+    echo "Método de solicitud no permitido.";
 }
 ?>

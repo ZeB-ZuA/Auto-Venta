@@ -1,23 +1,22 @@
 <?php
-require_once "../Service/FavoritesService.php";
+require_once "../Service/CarService.php";
 
-$favoriteService = new FavoritesSercive();
-
-
-if (isset(  $_GET['id'])){
-    $userId = htmlspecialchars($_GET['id']);
-    $cars = $favoriteService->findFavorites($userId);
+if (isset($_GET['id'])) {
+    $sellerId = intval(htmlspecialchars($_GET['id']));
+    $carService = new CarService();
+    $cars = $carService->findBySellerId($sellerId);
+} else {
+    $cars = [];
 }
-
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Favoritos</title>
+    <title>Car List</title>
     <style>
         .grid-container {
             display: grid;
@@ -47,9 +46,8 @@ if (isset(  $_GET['id'])){
 
 <body>
     <div>
-        <h2>CarrosFavoritos</h2>
+        <h2>Mis Compras</h2>
     </div>
-
     <div class="grid-container">
         <?php if ($cars): ?>
             <?php foreach ($cars as $car): ?>
@@ -59,29 +57,25 @@ if (isset(  $_GET['id'])){
                         <strong>Color:</strong> <?php echo $car->getColor(); ?> <br>
                         <strong>Año:</strong> <?php echo $car->getYear(); ?> <br>
                         <strong>Status:</strong> <?php echo $car->getStatus(); ?> <br>
-                        <form method="POST">
-                            <input type="hidden" name="plate" value="<?php echo $car->getPlate(); ?>">
-                            <input type = "hidden" name = "userId" value = "<?php echo $userId; ?>">
-                            <button type="submit" name="removeFavorite">Eliminar de Favoritos</button>
-                        </form>
+
                     </div>
                     <div class="card-details">
                         <strong>Placa:</strong> <?php echo $car->getPlate(); ?> <br>
                         <strong>Modelo:</strong> <?php echo $car->getModel(); ?> <br>
                         <strong>Puertas:</strong> <?php echo $car->getDoors(); ?> <br>
                         <strong>Cilindraje:</strong> <?php echo $car->getCc(); ?> <br>
-                        <strong>Transmisión:</strong> <?php echo $car->getTransmission(); ?> <br>
+                        <strong>Transmision:</strong> <?php echo $car->getTransmission(); ?> <br>
                         <strong>Combustible:</strong> <?php echo $car->getFuelType(); ?> <br>
                         <strong>Usado:</strong> <?php echo $car->getUsed(); ?> <br>
-                        <strong>Kilómetros:</strong> <?php echo $car->getKilometers(); ?> <br>
-                        <strong>Imagen:</strong> <img src="<?php echo $car->getImage(); ?>" alt="Imagen del Carro"
+                        <strong>Kilometros:</strong> <?php echo $car->getKilometers(); ?> <br>
+                        <strong>imagen:</strong> <img src="<?php echo $car->getImage(); ?>" alt="Car Image"
                             style="width:100px;height:auto;"><br>
                         <strong>Precio:</strong> <?php echo $car->getPrice(); ?> <br>
                     </div>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
-            <p>LISTA DE FAVORITOS VACIA</p>
+            <p>No carros comprados.</p>
         <?php endif; ?>
     </div>
 
@@ -99,18 +93,3 @@ if (isset(  $_GET['id'])){
 </body>
 
 </html>
-
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['removeFavorite'])){
-    if(isset( $_POST['plate']) && isset($_POST['userId'])){
-        $plate = htmlspecialchars($_POST['plate']);
-        $userId = htmlspecialchars($_POST['userId']);
-        $favoriteService->removeFavorite($userId, $plate);
-        header('Location: ./BuyerFavorites.php?id='.$userId);
-
-    }
-
-
-
-}
-?>
