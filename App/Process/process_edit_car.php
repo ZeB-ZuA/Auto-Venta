@@ -1,8 +1,10 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-
-
+    if (isset($_GET['id']) ) {
+        $sellerId = (int) $_GET['id']; // Asegúrate de que el id sea un entero
+        
+    } 
 
     if (isset($_POST['plate'])) {
 
@@ -48,9 +50,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $car->setImage($image);
             $car->setPrice($price);
             $car->setStatus($status);
-
+               
             if ($carService->update($car)) {
-                echo "Carro actualizado exitosamente.";
+                header("location: ../Seller/SellerCars.php?id=$sellerId");
             } else {
                 echo "Error al actualizar el carro.";
             }

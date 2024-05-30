@@ -14,10 +14,10 @@ $fechaRegistro = date("Y-m-d"); // Fecha actual
 
 // Intentar conectar
 try {
-    $conexion = $conexionBD->conectar();
+    $conexion = $conexionBD->connect();
 
     // Preparar la sentencia SQL
-    $statement = $conexion->prepare("INSERT INTO Usuario (Cedula, Correo_Electronico, Contraseña, Nombre, Apellido, Credito, Fecha_Registro) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $statement = $conexion->prepare("INSERT INTO User (Cedula, Correo_Electronico, Contraseña, Nombre, Apellido, Credito, Fecha_Registro) VALUES (?, ?, ?, ?, ?, ?, ?)");
 
     // Ejecutar la sentencia SQL con los datos proporcionados
     $statement->execute([$cedula, $correoElectronico, $contrasena, $nombre, $apellido, $credito, $fechaRegistro]);

@@ -41,10 +41,17 @@ CREATE TABLE Car(
 
 
 CREATE TABLE Favorites(
-    Plate INT,
+    Plate VARCHAR(255),
     ID_User INT
 );
 
+CREATE TABLE Sales(
+    ID_Sale INT,
+    ID_Seller INT,
+    ID_Buyer INT,
+    Plate VARCHAR(255),
+    Sale_Date DATE		
+);
 
 
 ALTER TABLE User MODIFY COLUMN ID_User INT AUTO_INCREMENT,
@@ -52,19 +59,27 @@ ADD PRIMARY KEY (ID_User);
 ALTER TABLE Car MODIFY COLUMN ID_Car INT AUTO_INCREMENT,
 ADD PRIMARY KEY (ID_Car);
 ALTER TABLE Favorites ADD PRIMARY KEY (ID_User, Plate);
+ALTER TABLE Sales MODIFY COLUMN ID_Sale INT AUTO_INCREMENT,
+ADD PRIMARY KEY (ID_Sale);
 
 
 
 
 ALTER TABLE Car ADD FOREIGN KEY (ID_Seller) REFERENCES User(ID_User) ON DELETE CASCADE;
 ALTER TABLE Favorites ADD FOREIGN KEY (ID_User) REFERENCES User(ID_User) ON DELETE CASCADE;
-ALTER TABLE Favorites ADD FOREIGN KEY (ID_Car) REFERENCES Car(Plate) ON DELETE CASCADE;
-
 ALTER TABLE Car ADD UNIQUE (Plate);
 ALTER TABLE User ADD UNIQUE (Email);
+CREATE INDEX idx_plate ON Car (Plate);
+ALTER TABLE Favorites ADD FOREIGN KEY (Plate) REFERENCES Car(Plate) ON DELETE CASCADE;
+
+ALTER TABLE Sales ADD FOREIGN KEY (ID_Seller) REFERENCES User(ID_User) ON DELETE CASCADE;
+ALTER TABLE Sales ADD FOREIGN KEY (ID_Buyer) REFERENCES User(ID_User) ON DELETE CASCADE;
+ALTER TABLE Sales ADD FOREIGN KEY (Plate) REFERENCES Car(Plate) ON DELETE CASCADE;
+
+
 
 INSERT INTO User (ID_Number, Email, Password, First_Name, Last_Name, Credit, Registration_Date, Rol) 
-VALUES (20212578106, 'Danna@danna.com', '123456', 'Danna', 'Sepulveda', 0, '2024-05-25', 'Vendor');
+VALUES (20212578106, 'Danna@danna.com', '123456', 'Danna', 'Sepulveda', 0, '2024-05-25', 'Seller');
 INSERT INTO User (ID_Number, Email, Password, First_Name, Last_Name, Credit, Registration_Date, Rol) 
 VALUES (20212578104, 'DannaCompradora@danna.com', '123456', 'Danna', 'Sepulveda', 0, '2024-05-25', 'Buyer');
 

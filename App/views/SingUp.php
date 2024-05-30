@@ -25,7 +25,7 @@
 
         <label for="role">Rol:</label><br>
         <select id="role" name="role">
-            <option value="Vendor">Vendedor</option>
+            <option value="Seller">Vendedor</option>
             <option value="Buyer">Comprador</option>
         </select><br><br>
 

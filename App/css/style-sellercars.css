@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+body {
+    background: url('../img/sellerview.jpg') ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+}
+
+.header {
+    margin-top: 20px;
+}
+.header a[href] {
+    background-color: #7ab5c7;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.header a:hover {
+    background-color: #669fa7;
+}
+
+.card-container {
+    width: 90%;
+    max-width: 1200px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.card {
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.card-header {
+    cursor: pointer;
+}
+
+.card-details {
+    display: none;
+    margin-top: 10px;
+}
+
+.card button,
+.card a {
+    background-color: #7ab5c7;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.card button:hover,
+.card a:hover {
+    background-color: #0056b3;
+}
+
+.card img {
+    width: 100px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.card form {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.card form button {
+    background-color: #d9534f;
+}
+
+.card form button:hover {
+    background-color: #c9302c;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #d9534f;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.close-btn:hover {
+    background-color: #c9302c;
+}
