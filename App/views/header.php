@@ -7,8 +7,10 @@
             </div>
 
             <div class="container-user">
-                <i class="fa-solid fa-user"></i>
-                <i class="fa-solid fa-basket-shopping"></i>
+                <a href="./login.php">
+                    <i class="fa-solid fa-user"></i>
+                    <i class="fa-solid fa-basket-shopping"></i>
+                </a>
                 <div class="content-shopping-cart">
                     <span class="text"> Tu Carrito</span>
                 </div>
@@ -20,7 +22,7 @@
         <nav class="navbar container">
             <i class="fa-solid fa-bars"></i>
             <ul class="menu">
-                <li><a href="./login.php">Home</a></li>
+                <li><a href="./index.php">Home</a></li>
                 <li><a href="sale.php">Catálogo</a></li>
                 <li><a href="index.php#suppliers">Proveedores</a></li>
 

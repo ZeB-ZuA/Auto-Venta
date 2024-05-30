@@ -56,7 +56,12 @@ function renderStars($count) {
 
     <!-- Products -->
     <section id="products-sale"class="container top-products">
-        <h1 class="heading-1">Catálogo</h1>
+        <h1 class="heading-1">Mejores Productos</h1>
+        <div class="container-options">
+            <span class="active">Destacados</span>
+            <span>Más recientes</span>
+            <span>Mas Vendidos</span>
+        </div>
 
         <div class="container-products">
             <?php foreach ($productos as $producto): ?>
@@ -67,8 +72,11 @@ function renderStars($count) {
                     <span class="discount"><?= $producto['discount']; ?></span>
                     <?php endif; ?>
                     <div class="button-group">
+                        <a href="./login.php">
                         <span><i class="fa-regular fa-eye"></i></span>
                         <span><i class="fa-regular fa-heart"></i></span>
+                        </a>
+                        
                     </div>
                 </div>
                 <div class="content-card-product">
@@ -76,7 +84,9 @@ function renderStars($count) {
                         <?= renderStars($producto['stars']); ?>
                     </div>
                     <h3><?= $producto['name']; ?></h3>
-                    <span class="add-cart"><i class="fa-solid fa-basket-shopping"></i></span>
+                    <a href="./login.php">
+                        <span class="add-cart"><i class="fa-solid fa-basket-shopping"></i></span>
+                     </a>                 
                     <p class="price">
                         <?= $producto['price']; ?>
                         <?php if ($producto['old_price']): ?>
