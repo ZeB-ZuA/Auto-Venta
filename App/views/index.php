@@ -20,7 +20,7 @@
             <div class="content-banner">
                 <p>Tu nuevo compañero de viaje</p>
                 <h2>100% Certificado <br />Automoviles</h2>
-                <a href="#">Comprar ahora</a>
+                <a href="./login.php">Comprar ahora</a>
             </div>
         </section> 
         
@@ -39,7 +39,7 @@
                         ..... &copy; 2024
                     </p>
 
-                    <img src="img/payment.png" alt="Pagos">
+                    <img src="../img/payment.png" alt="Pagos">
                 </div>
             </div>
         </footer>
