@@ -3,6 +3,8 @@ require_once("../Service/CarService.php");
 require_once("../Entity/Car.php");
 require_once("../Entity/User.php");
 require_once("../Service/UserService.php");
+require_once("../Service/SaleService.php");
+require_once("../Entity/Sale.php");
 
 if (isset($_GET['id']) && isset($_GET['plate'])) {
     $idBuyer = htmlspecialchars($_GET['id']);
@@ -10,6 +12,7 @@ if (isset($_GET['id']) && isset($_GET['plate'])) {
     
     $carService = new CarService();
     $userService = new UserService();
+    $saleService = new SaleService();
     
     $car = $carService->findByPlate($plate);
     if ($car) {
@@ -28,6 +31,14 @@ if (isset($_GET['id']) && isset($_GET['plate'])) {
                     
                     $userService->updateCredit($idBuyer, $buyer->getCredit());
                     $userService->updateCredit($sellerId, $seller->getCredit());
+
+
+                    $sale = new Sale(null, $sellerId, $idBuyer, $plate);
+                    if($saleService->create($sale)){
+                        echo'Compra realizada con éxito y registrada en la base de datos.';
+                    }else{
+                        echo'No se pudo registrar la compra en la base de datos.';
+                    }
                     
                     echo "Compra realizada con éxito.";
                 } else {

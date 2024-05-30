@@ -16,6 +16,87 @@ class UserService implements UserRepository {
         }
     }
 
+    public function findAllSellers(): array {
+        try {
+            $query = "SELECT * FROM User WHERE Rol = 'Seller'";
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+            $users = [];
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $users[] = new User(
+                    $row['ID_Number'],
+                    $row['Email'],
+                    $row['Password'],
+                    $row['First_Name'],
+                    $row['Last_Name'],
+                    $row['Rol'],
+                    $row['ID_User'],
+                    $row['Credit'],
+                    $row['Registration_Date']
+                );
+            }
+            return $users;
+        } catch (PDOException $e) {
+            
+            error_log("Error al buscar todos los vendedores: " . $e->getMessage());
+            return [];
+        }
+    }
+
+    public function findAllBuyers(): array {
+        try {
+            $query = "SELECT * FROM User WHERE Rol = 'Buyer'";
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+            $users = [];
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $users[] = new User(
+                    $row['ID_Number'],
+                    $row['Email'],
+                    $row['Password'],
+                    $row['First_Name'],
+                    $row['Last_Name'],
+                    $row['Rol'],
+                    $row['ID_User'],
+                    $row['Credit'],
+                    $row['Registration_Date']
+                );
+            }
+            return $users;
+        } catch (PDOException $e) {
+            
+            error_log("Error al buscar todos los compradores: " . $e->getMessage());
+            return [];
+        }
+    }
+
+    public function findAll(): array {
+        try {
+            $query = "SELECT * FROM User";
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+            $users = [];
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $users[] = new User(
+                    $row['ID_Number'],
+                    $row['Email'],
+                    $row['Password'],
+                    $row['First_Name'],
+                    $row['Last_Name'],
+                    $row['Rol'],
+                    $row['ID_User'],
+                    $row['Credit'],
+                    $row['Registration_Date']
+                );
+            }
+            return $users;
+        } catch (PDOException $e) {
+            
+            error_log("Error al buscar todos los usuarios: " . $e->getMessage());
+            return [];
+        }
+    }
+
     public function updateCredit(int $id, int $credit): bool {
         try {
             $query = "UPDATE User SET Credit = ? WHERE ID_User = ?";

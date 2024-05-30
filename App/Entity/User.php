@@ -11,7 +11,7 @@ class User {
     private $registrationDate;
     private $rol;
 
-    // Constructor
+    
      public function __construct($idNumber, $email, $password, $firstName, $lastName, $role, $id = null, $credit = 0, $registrationDate = null) {
         $this->idNumber = $idNumber;
         $this->email = $email;
@@ -24,7 +24,7 @@ class User {
         $this->id = $id;
     }
 
-    // Getters and setters
+
     public function getId() {
         return $this->id;
     }

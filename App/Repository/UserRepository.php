@@ -11,6 +11,11 @@ interface UserRepository {
 
     public function updateCredit(int $id, int $credit): bool;
    
+    public function findAll(): array;
+
+    public function findAllSellers(): array;
+
+    public function findAllBuyers(): array;
 }
 
 ?>

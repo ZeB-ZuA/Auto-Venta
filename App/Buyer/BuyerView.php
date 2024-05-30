@@ -18,12 +18,11 @@
                 echo "<a href=\"./UserProfile.php?id=$userId\">Mi perfil</a>";
                 echo "<a href=\"./BuyerFavorites.php?id=$userId\">Favoritos</a>";
                 echo "<a href=\"./BuyerBoughtCars.php?id=$userId\">Mis Compras</a>";
+        echo "<a href=\"./ReportsAndGraphs.php?id=$userId\">Graficos y Reportes</a></br>";
             } else {
                 echo "No se recibió ID de usuario.";
             }
             ?>
-        </nav>
-    </header>
 
     <main>
         <?php
