@@ -16,6 +16,7 @@
         echo "<a href=\"./UserProfile.php?id=$userId\">Mi perfil</a></br>";
         echo "<a href=\"./BuyerFavorites.php?id=$userId\">Favoritos</a></br>";
         echo "<a href=\"./BuyerBoughtCars.php?id=$userId\">Mis Compras</a></br>";
+        echo "<a href=\"./ReportsAndGraphs.php?id=$userId\">Graficos y Reportes</a></br>";
 
        
         require_once "./BuyerCarList.php";

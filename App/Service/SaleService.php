@@ -14,7 +14,23 @@ class SaleService implements SaleRepository
         $this->conn = $db->connect();
     }
 
-
+    public function findByBuyerId(int $buyerId): array
+    {
+        try {
+            $query = "SELECT * FROM Sales WHERE ID_Buyer = ?";
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute([$buyerId]);
+            $sales = [];
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $sales[] = $this->createSaleFromRow($row);
+            }
+            return $sales;
+        } catch (PDOException $e) {
+            error_log("Error al buscar ventas por ID de comprador: " . $e->getMessage());
+            return [];
+        }
+    }
+    
     public function findBySellerId($sellerId): array|null
     {
         $query = "SELECT * FROM Sales WHERE ID_Seller = ?";
@@ -60,7 +76,9 @@ class SaleService implements SaleRepository
         return $row ? $this->createSaleFromRow($row) : null;
     }
 
-    public function findAll(): array
+    
+
+    public function findAll(): array|null
     {
         $query = "SELECT * FROM Sales";
         $stmt = $this->conn->prepare($query);
