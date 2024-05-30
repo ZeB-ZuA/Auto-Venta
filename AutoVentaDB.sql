@@ -91,8 +91,8 @@ VALUES (20212578072, 'Luis@luis.com', '123456', 'Luis', 'Martinez', 0, '2024-03-
 
 INSERT INTO User (ID_Number, Email, Password, First_Name, Last_Name, Credit, Registration_Date, Rol) 
 VALUES (20212578076, 'Jorge@jorge.com', '123456', 'Jorge', 'Hernandez', 0, '2023-11-15', 'Buyer'),
-VALUES (20212578159, 'Laura@laura.com', '123456', 'Laura', 'Fernandez', 0, '2024-02-10', 'Buyer'),
-VALUES (20212578101, 'Miguel@miguel.com', '123456', 'Miguel', 'Ramirez', 0, '2023-07-22', 'Buyer');
+(20212578159, 'Laura@laura.com', '123456', 'Laura', 'Fernandez', 0, '2024-02-10', 'Buyer'),
+(20212578101, 'Miguel@miguel.com', '123456', 'Miguel', 'Ramirez', 0, '2023-07-22', 'Buyer');
 
 INSERT INTO Car (ID_Seller, Plate, Brand, Model, Year, Color, Doors, Cc, Transmission, Fuel_Type, Used, Kilometers, Image, Price, status)
 VALUES 
