@@ -3,10 +3,10 @@
 // conexión BD con la extensión PDO 
 class Connection {
 
-    private $host = "localhost";
-    private $bd = "autoventadb";
+    private $host = "localhost:3306";
+    private $bd = "AutoVentaDB";
     private $usuario = "root";
-    private $clave = "1234";
+    private $clave = "1936";
 
     function connect() {
         try {
