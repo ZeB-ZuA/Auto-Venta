@@ -39,7 +39,7 @@
                         ..... &copy; 2024
                     </p>
 
-                    <img src="img/payment.png" alt="Pagos">
+                    <img src="../img/payment.png" alt="Pagos">
                 </div>
             </div>
         </footer>
