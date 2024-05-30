@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: "Poppins", sans-serif;
+            background: url('../img/buyer.jpg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 500px;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, .2);
+            backdrop-filter: blur(25px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow:  10px rgba(0, 0, 0, 0.1);
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .items {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card button, .card input[type="submit"] {
+            background-color: #7ab5c7;
+            border: none;
+            color: rgb(0, 0, 0);
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .card button:hover, .card input[type="submit"]:hover {
+            background-color: #669fa7;
+        }

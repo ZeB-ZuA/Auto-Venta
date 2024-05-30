@@ -4,10 +4,9 @@ require_once "../Service/CarService.php";
 $carService = new CarService();
 $cars = $carService->findAll();
 
-if (isset(  $_GET['id'])){
+if (isset($_GET['id'])){
     $userId = htmlspecialchars($_GET['id']);
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -17,31 +16,7 @@ if (isset(  $_GET['id'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado de Carros</title>
-    <style>
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-            padding: 20px;
-        }
-
-        .card {
-            border: 1px solid #ccc;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .card-header {
-            cursor: pointer;
-        }
-
-        .card-details {
-            display: none;
-            margin-top: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/style-buyercarlist.css" />
 </head>
 
 <body>
@@ -58,7 +33,7 @@ if (isset(  $_GET['id'])){
                         <strong>Color:</strong> <?php echo $car->getColor(); ?> <br>
                         <strong>Año:</strong> <?php echo $car->getYear(); ?> <br>
                         <strong>Status:</strong> <?php echo $car->getStatus(); ?> <br>
-                         <a href="../Process/process_add_favorites.php?id=<?php echo $userId; ?>&plate=<?php echo $car->getPlate(); ?>">Favoritos</a></br>
+                        <a href="../Process/process_add_favorites.php?id=<?php echo $userId; ?>&plate=<?php echo $car->getPlate(); ?>">Favoritos</a></br>
                     </div>
                     <div class="card-details">
                         <strong>Placa:</strong> <?php echo $car->getPlate(); ?> <br>
@@ -69,8 +44,7 @@ if (isset(  $_GET['id'])){
                         <strong>Combustible:</strong> <?php echo $car->getFuelType(); ?> <br>
                         <strong>Usado:</strong> <?php echo $car->getUsed(); ?> <br>
                         <strong>Kilómetros:</strong> <?php echo $car->getKilometers(); ?> <br>
-                        <strong>Imagen:</strong> <img src="<?php echo $car->getImage(); ?>" alt="Imagen del Carro"
-                            style="width:100px;height:auto;"><br>
+                        <strong>Imagen:</strong> <img src="<?php echo $car->getImage(); ?>" alt="Imagen del Carro"><br>
                         <strong>Precio:</strong> <?php echo $car->getPrice(); ?> <br>
                         <a href="../Process/process_buy_car.php?id=<?php echo $userId; ?>&plate=<?php echo $car->getPlate(); ?>">COMPRAR</a>
                     </div>

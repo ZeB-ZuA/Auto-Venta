@@ -14,41 +14,22 @@ if (isset(  $_GET['id'])){
 <!DOCTYPE html>
 <html lang="es">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favoritos</title>
-    <style>
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-            padding: 20px;
-        }
-
-        .card {
-            border: 1px solid #ccc;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .card-header {
-            cursor: pointer;
-        }
-
-        .card-details {
-            display: none;
-            margin-top: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/style-buyercards.css" />
 </head>
 
 <body>
-    <div>
-        <h2>CarrosFavoritos</h2>
-    </div>
+
+    <header>
+        <h2>Tus Carros Favoritos</h2>
+    </header>
+    <main>
+        
+    
 
     <div class="grid-container">
         <?php if ($cars): ?>
@@ -74,7 +55,7 @@ if (isset(  $_GET['id'])){
                         <strong>Combustible:</strong> <?php echo $car->getFuelType(); ?> <br>
                         <strong>Usado:</strong> <?php echo $car->getUsed(); ?> <br>
                         <strong>Kilómetros:</strong> <?php echo $car->getKilometers(); ?> <br>
-                        <strong>Imagen:</strong> <img src="<?php echo $car->getImage(); ?>" alt="Imagen del Carro"
+                        <strong>Imagen: </strong> <img src="<?php echo $car->getImage(); ?>" alt="Imagen del Carro"
                             style="width:100px;height:auto;"><br>
                         <strong>Precio:</strong> <?php echo $car->getPrice(); ?> <br>
                     </div>
@@ -96,6 +77,8 @@ if (isset(  $_GET['id'])){
             });
         });
     </script>
+    
+</main>
 </body>
 
 </html>
@@ -109,8 +92,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['removeFavorite'])){
         header('Location: ./BuyerFavorites.php?id='.$userId);
 
     }
-
-
-
 }
 ?>

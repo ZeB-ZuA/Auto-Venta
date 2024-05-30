@@ -4,13 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Mi Perfil</title>
+    <link rel="stylesheet" href="../css/style-buyeruserprofile.css" />
+    
 </head>
 
 <body>
-    <div>
+    <div class="card">
         <h2>Mi perfil</h2>
-
-        <?php require_once 'BuyerInfo.php'; ?>
+        <div class="items">
+            <?php require_once 'BuyerInfo.php'; ?>
+        </div>
     </div>
 </body>
 
