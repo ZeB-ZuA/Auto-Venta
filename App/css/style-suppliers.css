@@ -1,0 +1,146 @@
+/* ********************************** */
+/*             SUPPLIERS              */
+/* ********************************** */
+
+.suppliers {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	margin-bottom: 3rem;
+}
+
+.container-suppliers {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 3rem;
+}
+
+.card-suppliers {
+	height: 20rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 2rem;
+	gap: 2rem;
+}
+.suppliers-1 {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('../img/ProveedorFerrari.jpg');
+	background-size: cover;
+	background-position: bottom;
+	background-repeat: no-repeat;
+}
+
+.suppliers-2 {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('../img/ProveedorHonda.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.suppliers-3 {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('../img/ProveedorMercedes.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.suppliers-4 {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('../img/proveedorBMW.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.suppliers-5 {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('../img/proveedorTOYOTA.PNG');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+
+.card-suppliers p {
+	font-size: 2.5rem;
+	color: #fff;
+	text-transform: capitalize;
+	position: relative;
+}
+
+.card-suppliers p::after {
+	content: '';
+	width: 2.5rem;
+	height: 2px;
+	background-color: #fff;
+	position: absolute;
+	bottom: -1rem;
+	left: 50%;
+	transform: translate(-50%, 50%);
+}
+
+.card-suppliers span {
+	font-size: 1.6rem;
+	color: #fff;
+	cursor: pointer;
+}
+
+.card-suppliers span:hover {
+	color: var(--primary-color);
+}
+
+.modal {
+	display: none; 
+	position: fixed;
+	z-index: 1; 
+	top: 0;
+	width: 100%; 
+	height: 100%; 
+	overflow: auto;
+	background-color: rgb(0, 0, 0); 
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+	background-color: #fefefe;
+	margin: 15% auto; 
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%; 
+	max-width: 600px;
+}
+
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.container-suppliers {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+.card-suppliers {
+	border: 1px solid #ddd;
+	padding: 20px;
+	border-radius: 8px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.heading-1 {
+	text-align: center;
+	margin-bottom: 20px;
+}
